@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>project_zero</title>
+  <link rel="stylesheet" type="text/css" href="res/global.css">
+  <link rel="icon" href="res/favicon.ico">
+  <style>
+body{background:#000; color:#666; font-family:'montserrat','Arial','Helvetica','Roboto',sans-serif;}
+div.col{position:fixed; top:0; bottom:0; overflow:hidden; width:14.2857%;}
+div.inner{position:absolute; left:0; right:0; top:0; transition: all 1s;}
+div.a1{left:0;}
+div.a2{left:14.2857%;}
+div.a3{left:28.5714%;}
+div.a4{left:42.8571%;}
+div.a5{left:57.1428%;}
+div.a6{left:71.4285%;}
+div.a7{left:85.7142%;}
+
+div.col p{display:block; text-align:center; white-space:nowrap; font-size:2vw; text-transform:uppercase;
+  transition: all 1s;
+}
+div.col p.sel{color:#fff;}
+  </style>
+  <script src="res/jquery.js"></script>
+  <script>
+var h = 0;
+var m = 0;
+$(document).ready(function(){
+  var col = $('.col');
+  var step = 100.0/col.length;
+  col.each(function(i,item){
+    $(item).css({'left' : (i*step)+'%'});
+  });
+  setInterval(function(){
+    h = $('p').height();
+    m = $(window).height()/2-(h/2);
+    col.each(function(i,item){
+      var container = $(item).find('.inner');
+      var ch  = container.children();
+      var max = ch.length-1;
+      var sel = Math.floor(Math.random() * max) + 1;
+      ch.removeClass('sel');
+      var selp = $(ch[sel-1]);
+      selp.addClass('sel');
+      var num = (-sel*h)+m;
+      container.css({top:num+'px'})
+    });
+  },6000);
+});
+$(window).resize(function(){
+  h = $('#p').height();
+  m = $(window).height(w/2)-(h/2);
+})
+  </script>
+</head>
+<body>
+  <div class="col"><div class="inner">
+      <p>The chiefs </p>
+      <p>The eagles </p>
+      <p>No one </p>
+      <p>Me </p>
+      <p>the bengals</p>
+      <p>The 49ers</p>
+      <p>The Seahawks</p>
+      <p>The Rams</p>
+      <p>The Dolphins</p>
+      <p>The Bears</p>
+      <p>The Lions</p>
+      <p>The Broncos</p>
+      <p>The eagles </p>
+      <p>No one </p>
+      <p>Me </p>
+      <p>the bengals</p>
+      <p>The 49ers</p>
+      <p>The Seahawks</p>
+      <p>The Rams</p>
+      <p>The Dolphins</p>
+      <p>The Bears</p>
+      <p>The Lions</p>
+      <p>The Broncos</p>
+  </div></div>
+
+  <div class="col"><div class="inner">
+    <p>might win </p>
+    <p>lost </p>
+    <p>Will make</p>
+    <p>will not make</p>
+    <p>might win </p>
+    <p>lost </p>
+    <p>Will make</p>
+    <p>will not make</p><p>might win </p>
+    <p>lost </p>
+    <p>Will make</p>
+    <p>will not make</p>
+  </div></div>
+
+  <div class="col"><div class="inner">
+    <p>the superbowl </p>
+  </div></div>
+
+</div>
+
+</body>
+</html>
